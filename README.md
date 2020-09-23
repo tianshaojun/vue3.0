@@ -1,2 +1,3 @@
 # vue3.0
-Vue 3.0 来了，我们该做些什么呢？ 学习，赶紧学习，学不动了也要学！
+
+![](https://github.com/tianshaojun/vue3.0/blob/master/md_img/01.jpg)
