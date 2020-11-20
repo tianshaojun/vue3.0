@@ -10,3 +10,9 @@
 
 + @vue/cli 4.5.4以上版本
 + 项目初始化  vue create vue3-1
+
+### 3.用vue-cli图形界面搭建vue3开发环境
+
++ 启动图形界面  vue ui
+
+
