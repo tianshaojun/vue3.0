@@ -19,6 +19,11 @@
 
 ```
 frendEnds
+|  node_modules                  所有的项目依赖包都放在这个目录下
+
+
+
+
 │  .babelrc						// 按需引入vant中的组件
 │  babel.config.js					// es babel配置
 │  package-lock.json				// 锁定安装时的包的版本号和来源
