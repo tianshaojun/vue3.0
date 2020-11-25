@@ -37,6 +37,14 @@
 |-yarn.lock          -- 使用yarn后自动生成的文件，由Yarn管理，安装yarn包时的重要信息存储到yarn.lock文件中
 ```
 
+### 5.setup()和ref()
+
++ setup代替了vue2中的data和methods属性
++ 在template中使用的变量，必须用ref包装一下
++ return出去的数据和方法，在模板中才可以使用
+
+
+
 
 
 
