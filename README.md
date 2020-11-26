@@ -43,6 +43,12 @@
 + 在template中使用的变量，必须用ref包装一下
 + return出去的数据和方法，在模板中才可以使用
 
+### 6.reactive()函数优化程序
+
++ reactive / toRefs
+
+
+
 
 
 
