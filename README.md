@@ -63,17 +63,17 @@
 #### Vue2.x和Vue3.x生命周期对比
 
 Vue2--------------vue3
-beforeCreate  -> setup()
-created       -> setup()
-beforeMount   -> onBeforeMount
-mounted       -> onMounted
-beforeUpdate  -> onBeforeUpdate
-updated       -> onUpdated
-beforeDestroy -> onBeforeUnmount
-destroyed     -> onUnmounted
-activated     -> onActivated
-deactivated   -> onDeactivated
-errorCaptured -> onErrorCaptured
++ beforeCreate  -> setup()
++ created       -> setup()
++ beforeMount   -> onBeforeMount
++ mounted       -> onMounted
++ beforeUpdate  -> onBeforeUpdate
++ updated       -> onUpdated
++ beforeDestroy -> onBeforeUnmount
++ destroyed     -> onUnmounted
++ activated     -> onActivated
++ deactivated   -> onDeactivated
++ errorCaptured -> onErrorCaptured
 
 
 
