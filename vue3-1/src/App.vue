@@ -19,22 +19,64 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, 
+         ref, 
+         onBeforeMount, 
+         onMounted, 
+         onBeforeUpdate, 
+         onUpdated, 
+         onBeforeUnmount
+} from "vue";
 
 export default defineComponent({
   name: "App",
   setup() {
+    console.log('1-开始创建组件-----setup()');
     const girls = ref(["大脚", "刘英", "晓红"]);
     const selectGirl = ref("");
     const selectGirlFun = (index: number) => {
       selectGirl.value = girls.value[index];
     };
+    onBeforeMount(() => {
+      console.log("2-组件挂载到页面之前执行-----onBeforeMount()");
+    });
+
+    onMounted(() => {
+      console.log("3-组件挂载到页面之后执行-----onMounted()");
+    });
+
+    onBeforeUpdate(() => {
+      console.log("4-组件更新之前-----onBeforeUpdate()");
+    });
+
+    onUpdated(() => {
+      console.log("5-组件更新之后-----onUpdated()");
+    });
+
     return {
       girls,
       selectGirl,
       selectGirlFun,
     };
   },
+
+  // beforeCreate() {
+  //   console.log("1.1-组件创建之前-----beforeCreate()");
+  // },
+  // beforeMount() {
+  //   console.log('2.2-组件挂载到页面之前执行-----beforeMount()');
+  // },
+  // mounted() {
+  //   console.log('3.3-组件挂载到页面之后执行-----mounted()');
+  // },
+  // beforeUpdate() {
+  //   console.log('4.4-组件更新之前-----beforeUpdate()');
+  // },
+  // updated() {
+  //   console.log('5.5-组件更新之后-----updated()');
+  // }
+
+  
 });
 </script>
 
