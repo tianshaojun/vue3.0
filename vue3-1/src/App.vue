@@ -20,7 +20,8 @@
 
 <script lang="ts">
 import { defineComponent, 
-         ref, 
+         toRefs, 
+         reactive,
          onBeforeMount, 
          onMounted, 
          onBeforeUpdate, 
@@ -37,11 +38,14 @@ export default {
   name: "App",
   setup() {
     console.log('1-开始创建组件-----setup()');
-    const girls = ref(["大脚", "刘英", "晓红"]);
-    const selectGirl = ref("");
-    const selectGirlFun = (index: number) => {
-      selectGirl.value = girls.value[index];
-    };
+    const data: DataProps = reactive({
+      girls: ["大脚", "刘英", "晓红"],
+      selectGirl: "",
+      selectGirlFun: (index: number) => {
+        data.selectGirl = data.girls[index];
+      },
+    });
+
     onBeforeMount(() => {
       console.log("2-组件挂载到页面之前执行-----onBeforeMount()");
     });
@@ -58,8 +62,10 @@ export default {
       console.log("5-组件更新之后-----onUpdated()");
     });
 
+    const refData = toRefs(data);
+
     return {
-      // ...refData,
+      ...refData,
     };
   },
 
@@ -78,8 +84,6 @@ export default {
   // updated() {
   //   console.log('5.5-组件更新之后-----updated()');
   // }
-
-  
 }
 </script>
 
