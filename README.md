@@ -60,7 +60,20 @@
 + onDeactivated(): 比如从 A 组件，切换到 B 组件，A 组件消失时执行。
 + onErrorCaptured(): 当捕获一个来自子孙组件的异常时激活钩子函数。
   
-#### 0000
+#### Vue2.x和Vue3.x生命周期对比
+
+Vue2--------------vue3
+beforeCreate  -> setup()
+created       -> setup()
+beforeMount   -> onBeforeMount
+mounted       -> onMounted
+beforeUpdate  -> onBeforeUpdate
+updated       -> onUpdated
+beforeDestroy -> onBeforeUnmount
+destroyed     -> onUnmounted
+activated     -> onActivated
+deactivated   -> onDeactivated
+errorCaptured -> onErrorCaptured
 
 
 
