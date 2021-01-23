@@ -28,7 +28,12 @@ import { defineComponent,
          onBeforeUnmount
 } from "vue";
 
-export default defineComponent({
+interface DataProps {
+  girls: string[];
+  selectGirl: string;
+  selectGirlFun: (index: number) => void;
+}
+export default {
   name: "App",
   setup() {
     console.log('1-开始创建组件-----setup()');
@@ -54,9 +59,7 @@ export default defineComponent({
     });
 
     return {
-      girls,
-      selectGirl,
-      selectGirlFun,
+      // ...refData,
     };
   },
 
@@ -77,7 +80,7 @@ export default defineComponent({
   // }
 
   
-});
+}
 </script>
 
 <style>
