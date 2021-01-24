@@ -75,6 +75,12 @@ Vue2--------------vue3
 + deactivated   -> onDeactivated
 + errorCaptured -> onErrorCaptured
 
+### 8.onRenderTracked()和onRenderTriggered()钩子函数使用
+
++ onRenderTracked状态跟踪
++ onRenderTriggeded状态触发
+
+
 
 
 
