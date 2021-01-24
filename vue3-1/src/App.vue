@@ -15,6 +15,8 @@
       </button>
     </div>
     <div>你选择了【{{ selectGirl }}】为你服务</div>
+    <div><button @click="overAction">点餐完毕</button></div>
+    <div>{{ overText }}</div>
   </div>
 </template>
 
@@ -28,7 +30,9 @@ import { defineComponent,
          onUpdated, 
          onBeforeUnmount,
          onRenderTracked,
-         onRenderTriggered
+         onRenderTriggered,
+         ref,
+         watch
 } from "vue";
 
 interface DataProps {
@@ -39,7 +43,7 @@ interface DataProps {
 export default {
   name: "App",
   setup() {
-    console.log('1-开始创建组件-----setup()');
+    // console.log('1-开始创建组件-----setup()');
     const data: DataProps = reactive({
       girls: ["大脚", "刘英", "晓红"],
       selectGirl: "",
@@ -48,20 +52,32 @@ export default {
       },
     });
 
+    const overText = ref("红浪漫");
+    const overAction = () => {
+      overText.value = overText.value + "点餐完成 | ";
+      // document.title = overText.value;
+    };
+
+    watch([overText, () => data.selectGirl], (newValue, oldValue) => {
+       console.log(`new--->${newValue}`);
+       console.log(`old--->${oldValue}`);
+       document.title = newValue[0];
+    });
+
     onBeforeMount(() => {
-      console.log("2-组件挂载到页面之前执行-----onBeforeMount()");
+      // console.log("2-组件挂载到页面之前执行-----onBeforeMount()");
     });
 
     onMounted(() => {
-      console.log("3-组件挂载到页面之后执行-----onMounted()");
+      // console.log("3-组件挂载到页面之后执行-----onMounted()");
     });
 
     onBeforeUpdate(() => {
-      console.log("4-组件更新之前-----onBeforeUpdate()");
+      // console.log("4-组件更新之前-----onBeforeUpdate()");
     });
 
     onUpdated(() => {
-      console.log("5-组件更新之后-----onUpdated()");
+      // console.log("5-组件更新之后-----onUpdated()");
     });
 
     // onRenderTracked((event) => {
@@ -69,15 +85,17 @@ export default {
     //   console.log(event);
     // });
 
-    onRenderTriggered((event) => {
-      console.log("状态触发组件------------>");
-      console.log(event);
-    })
+    // onRenderTriggered((event) => {
+    //   console.log("状态触发组件------------>");
+    //   console.log(event);
+    // });
 
     const refData = toRefs(data);
 
     return {
       ...refData,
+      overText,
+      overAction
     };
   },
 
