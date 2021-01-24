@@ -80,6 +80,10 @@ Vue2--------------vue3
 + onRenderTracked状态跟踪
 + onRenderTriggeded状态触发
 
+### 9.watch
+
+### 10.111
+
 
 
 
