@@ -26,7 +26,9 @@ import { defineComponent,
          onMounted, 
          onBeforeUpdate, 
          onUpdated, 
-         onBeforeUnmount
+         onBeforeUnmount,
+         onRenderTracked,
+         onRenderTriggered
 } from "vue";
 
 interface DataProps {
@@ -61,6 +63,16 @@ export default {
     onUpdated(() => {
       console.log("5-组件更新之后-----onUpdated()");
     });
+
+    // onRenderTracked((event) => {
+    //   console.log("状态跟踪组件-------------->");
+    //   console.log(event);
+    // });
+
+    onRenderTriggered((event) => {
+      console.log("状态触发组件------------>");
+      console.log(event);
+    })
 
     const refData = toRefs(data);
 
