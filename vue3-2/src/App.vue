@@ -2,14 +2,19 @@
   <div>
     <div>{{nowTime}}</div>
     <div><button @click="getNowTime">显示时间</button></div>
+    <Beauty></Beauty>
   </div>
 </template>
 
 <script lang="ts">
 // import { ref } from "vue";
 import { nowTime, getNowTime } from './hooks/useNowTime';
+import Beauty from '@/components/RandomBeauty.vue';  //随机出现美女组件
 const app = {
   name: "App",
+  components: {
+    Beauty
+  },
   setup() {
     //  const nowTime = ref("00:00:00");
     //  const getNowTime = () => {
