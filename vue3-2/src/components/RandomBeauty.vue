@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { ref } from "vue";
+// import { ref } from "vue";
 import useUrlAxios from "../hooks/useUrlAxios";
 const app = {
   name: "RandomBeauty",
