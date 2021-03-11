@@ -23,7 +23,7 @@
 ---|favicon.ico      -- 网站的显示图标
 ---|index.html       -- 入口的html文件
 |-src                -- 源文件目录，编写的代码基本都在这个目录下
----|assets           -- 放置静态文件的目录，比如logo.pn就放在这里
+---|assets           -- 放置静态文件的目录，比如logo.png就放在这里
 ---|components       -- Vue的组件文件，自定义的组件都会放到这
 ---|App.vue          -- 根组件，这个在Vue2中也有
 ---|main.ts          -- 入口文件，因为采用了TypeScript所以是ts结尾
