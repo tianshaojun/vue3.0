@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo10</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'jspang.com',
+                name: 'title',
+                event: 'click'
+            }
+        },
+        methods: {
+            handleClick() {
+                alert('欢迎光临红浪漫');
+            },
+            handleButton(e) {
+                // e.preventDefault();
+                alert('jspang.com');
+            }
+        },
+        template: `<h2 @[event]="handleClick" :[name]="message">{{message}}</h2>
+                  <form action="http://jspang.com" @[event].prevent="handleButton">
+                    <button type="submit">默认提交</button>
+                  </form>
+                `
+    })
+
+    const vm = app.mount('#app')
+</script>
+
+</html>

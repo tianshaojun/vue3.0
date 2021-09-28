@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo9</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: '<i>jspang.com</i>',
+                count: 5
+            }
+        },
+        methods: {
+            handleItemClick() {
+                this.message = this.message == 'jspang.com' ? '技术胖' : 'jspang.com';
+            }
+        },
+        template: `<h2 v-on:click="handleItemClick" v-html="message" v-once v-bind:title="message"></h2>
+                   <div>{{count > 2 ? '大' : '小'}}</div>
+                   <div>{{'jspang' + '.com'}}</div>
+                   <div>{{1+2}}</div>
+                  `
+    })
+
+    const vm = app.mount('#app')
+</script>
+
+</html>
