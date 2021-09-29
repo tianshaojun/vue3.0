@@ -17,27 +17,32 @@
         data() {
             return {
                 message: 'jspang.com',
-                name: 'title',
-                event: 'click'
             }
         },
         methods: {
-            handleClick() {
-                alert('欢迎光临红浪漫');
-            },
-            handleButton(e) {
-                // e.preventDefault();
-                alert('jspang.com');
+            handleItemClick() {
+                this.message = this.message == 'jspang.com' ? '技术胖' : 'jspang.com'
             }
         },
-        template: `<h2 @[event]="handleClick" :[name]="message">{{message}}</h2>
-                  <form action="http://jspang.com" @[event].prevent="handleButton">
-                    <button type="submit">默认提交</button>
-                  </form>
-                  `
+        template: `<h2 @click="handleItemClick" v-if="message=='jspang.com'" class='one'>{{message}}</h2>
+        <h2 @click="handleItemClick" v-else class='three'>{{message}}</h2>`
     })
 
     const vm = app.mount('#app')
 </script>
+
+<style>
+    .one {
+        color: red;
+    }
+
+    .two {
+        color: green;
+    }
+
+    .three {
+        color: orange;
+    }
+</style>
 
 </html>
