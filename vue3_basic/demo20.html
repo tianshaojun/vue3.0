@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo20</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            addCountClick() {
+                this.count++;
+            },
+            handleBtnClick1() {
+                alert('1');
+            }
+        },
+        template: `
+           <div @click.self="handleBtnClick1()">
+              我是最外层的DIV文字
+              <div>目前已点佳丽数量{{count}}.</div>
+              <button @click.stop="addCountClick()">增加一位佳丽</button>
+           </div>
+        `
+    })
+
+    const vm = app.mount('#app');
+</script>
+
+</html>

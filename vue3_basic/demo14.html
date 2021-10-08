@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo14</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<style>
+    .red {
+        color: red;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .background {
+        background-color: orange;
+    }
+</style>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                classString: 'red',
+                classObject: { red: true, background: true },
+                classArray: ['green', 'background'],
+            }
+        },
+        template: `
+          <h2 class="red">JSPang.com</h2>
+          <h2 v-bind:class="classString">JSPang.com</h2>
+          <h2 :class="classString">JSPang.com</h2>
+          <h2 :class="classObject">JSPang.com</h2>
+          <h2 :class="classArray">JSPang.com</h2>
+        `
+    })
+
+    const vm = app.mount('#app');
+</script>
+
+</html>

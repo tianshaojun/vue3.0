@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo18</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                listArray: ['谢大脚', '刘英', '晓红'],
+                listObject: {
+                    GirlOne: '谢大脚',
+                    GirlTwo: '刘英',
+                    GirlThree: '晓红'
+                }
+            }
+        },
+        methods: {
+            handleChangeBtnClick() {
+                this.listArray.push('JSPang.com');
+            }
+        },
+        template: `
+           <ul>
+              <template v-for="(item,index) in listArray" :key="index+item">
+              <li  v-if="item != '谢大脚'">[{{index}}]{{item}}</li>
+              </template>
+           </ul>
+           <button @click="handleChangeBtnClick">点我改变</button>
+           <ul>
+              <li v-for="(value,key,index) in listObject" :key="key">[{{index}}]{{value}}-{{key}}</li>
+           </ul>
+           <span v-for="count in 99">{{count}},</span>
+        `
+    })
+
+    const vm = app.mount('#app');
+</script>
+
+</html>

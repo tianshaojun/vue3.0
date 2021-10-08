@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo19</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            addCountClick(num, event) {
+                // this.count++;
+                this.count += num;
+                console.log(event.target);
+            },
+            handleBtnClick1() {
+                alert('1');
+            },
+            handleBtnClick2() {
+                alert('2');
+            }
+        },
+        template: `
+          <div>目前已点佳丽数量{{count}}.</div>
+          <button @click="addCountClick(2,$event)">增加一位佳丽</button>
+          <button @click="count++">增加一位佳丽</button>
+          <button @click="handleBtnClick1(),handleBtnClick2()">增加一位佳丽</button>
+        `
+    })
+
+    const vm = app.mount('#app');
+</script>
+
+</html>
