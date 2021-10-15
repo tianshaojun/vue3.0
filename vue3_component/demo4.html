@@ -6,10 +6,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>demo4</title>
+    <script src="vue3.js"></script>
 </head>
 
 <body>
-1111
+    <div id="app"></div>
 </body>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // name: '123',
+                pay: () => {
+                    alert('给你500元');
+                }
+            }
+        },
+        template: `
+           <h2>JSPang.com</h2>
+           <Son :name="name" />
+        `
+    })
+
+    app.component('Son', {
+        props: {
+            name: {
+                type: String,
+                // required: true
+                validator: function (value) {
+                    console.log(value.search('JSPang'));
+                    return value.search('JSPang') != -1;
+                },
+                default: 'JSPang.com'
+            }
+        },
+        template: `<div>{{name}} div</div>`
+    })
+
+    const vm = app.mount('#app');
+</script>
 
 </html>
