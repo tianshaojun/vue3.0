@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo8</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                jishi: '晓红'
+            }
+        },
+        template: `
+             <h2>欢迎光临红浪漫-请选择您的技师</h2>
+             <ji-shi><div style="color:red;font-size:50px;">{{jishi}},<project /></div></ji-shi>
+             <ji-shi><div style="color:red;font-size:50px;">刘英</div></ji-shi>
+        `
+    })
+
+    app.component('project', {
+        template: `<span style="color:blue;">项目是胖哥老三样</span>`
+    })
+
+    app.component('JiShi', {
+        data() {
+            return {
+                jishi: "谢大脚"
+            }
+        },
+        template: `
+           <div>
+               <span>经过你的慎重考虑.最终选择了。</span>
+               <span>
+                  <slot></slot>
+               </span>
+           </div>
+        `
+    })
+
+    const vm = app.mount('#app');
+
+</script>
+
+</html>

@@ -15,32 +15,27 @@
 
 <script>
     const app = Vue.createApp({
-        data() {
-            return {
-                counter: 0
-            }
-        },
         template: `
-            <h2>JSPang.com</h2>
-            <counter :counter="counter" />
-            <counter :counter="counter" />
-            <counter :counter="counter" />
+           <h2>JSPang.com</h2>
+           <hello msg="jspang" style="color:red;" />
         `
     })
 
-    app.component('Counter', {
-        props: ['counter'],
-        data() {
-            return {
-                newCounter: this.counter
-            }
+    app.component('Hello', {
+        // props: ['msg'],
+        inheritAttrs: false,
+        mounted() {
+            console.log(this.$attrs.msg);
         },
         template: `
-           {{newCounter}}<button @click="this.newCounter+=1">增加数量</button>
+            <h3 v-bind="$attrs">Hello World</h3>
+            <h3 v-bind:style="$attrs.style">Hello World</h3>
+            <h3>Hello World</h3>
         `
     })
 
-    const vm = app.mount('#app');
+    const vm = app.mount('#app')
+
 </script>
 
 </html>
