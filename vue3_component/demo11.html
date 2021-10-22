@@ -15,26 +15,35 @@
 
 <script>
     const app = Vue.createApp({
-        template: `
-            <h2>欢迎光临红浪漫-请选择您的技师</h2>
-            <list v-slot="props"><span>{{props.item}}-{{props}}</span><list/>
-        `
-    })
-
-    app.component('List', {
         data() {
             return {
-                list: ['大脚', '刘英', '晓红']
+                showItem: 'dajiao'
             }
         },
         template: `
-            <div>
-                <slot v-for="item in list" :item="item" />
-            </div>
-        `
+          <h2>欢迎光临红浪漫-请选择您的技师</h2>
+          <button @click="handleClick">切换佳丽</button>
+          <keep-alive>
+            <component :is="showItem" />
+          </keep-alive>
+       `,
+        methods: {
+            handleClick() {
+                this.showItem = this.showItem == 'dajiao' ? 'liuying' : 'dajiao';
+            }
+        }
     })
 
-    const vm = app.mount('#app')
+    app.component('dajiao', {
+        // template: `<img src="https://newimg.jspang.com/xiedajiao01.jpg" />`
+        template: `<input />`
+    })
+
+    app.component('liuying', {
+        template: `<img src="https://newimg.jspang.com/liuying01.jpg" />`
+    })
+
+    const vm = app.mount('#app');
 </script>
 
 </html>

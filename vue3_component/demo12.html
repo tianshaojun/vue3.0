@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo12</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script>
+    const app = Vue.createApp({
+        template: `
+           <div>
+             <tongbu />
+             <async-component />
+           </div>`
+    })
+
+    app.component('tongbu', {
+        template: `<div>JSPang.com</div>`
+    })
+
+    app.component('async-component', Vue.defineAsyncComponent(() => {
+        return new Promise((resolve, rejcet) => {
+            setTimeout(() => {
+                resolve({
+                    template: `<div>这是一个异步组件</div>`
+                })
+            }, 3000)
+        })
+    }))
+
+    const vm = app.mount('#app');
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo13</title>
+    <script src="vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                house: '北京别墅一套'
+            }
+        },
+        provide: {
+            newHouse: '北京200平方房子一套'
+        },
+        template: `
+            <div>我有一套房子，我先传给我的儿子</div>
+            <child :house="house" />
+        `
+    })
+
+    app.component('child', {
+        props: ['house'],
+        template: `
+           <div>我是子组件，我要把房子再传给我儿子。</div>
+           <div>儿子接收{{house}}</div>
+           <child-child :house="house" />
+        `
+    })
+
+    app.component('child-child', {
+        props: ['house'],
+        inject: ['newHouse'],
+        template: `
+           <div>我是孙子，等待接收房子。</div>
+           <div>孙子接收{{house}},{{newHouse}}</div>
+        `
+    })
+
+    const vm = app.mount('#app')
+</script>
+
+</html>
