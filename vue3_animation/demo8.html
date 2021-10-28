@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo08</title>
+    <style>
+        .v-enter-from,
+        .v-leave-to {
+            opacity: 0;
+        }
+
+        .v-enter-to,
+        .v-leave-from {
+            opacity: 1;
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: opacity 2s ease-in;
+        }
+    </style>
+    <script src="./vue3.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                isShow: false
+            }
+        },
+        methods: {
+            handleClick() {
+                this.isShow = !this.isShow
+            }
+        },
+        template: `
+          <transition mode="out-in" appear>
+             <div v-if="isShow">大脚进入了试衣间</div>
+             <div v-else>晓红进入了试衣间</div>
+          </transition>
+          <button @click="handleClick">切换动画</button>
+        `
+    })
+
+    const vm = app.mount('#app')
+</script>
+
+</html>
