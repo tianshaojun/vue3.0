@@ -28,7 +28,38 @@
     <div id="app"></div>
 </body>
 <script>
-    
+    const DaJiao = {
+        template: `<div>大脚进入了试衣间</div>`
+    }
+
+    const XiaoHong = {
+        template: `<div>晓红进入了试衣间</div>`
+    }
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                component: 'da-jiao'
+            }
+        },
+        methods: {
+            handleClick() {
+                this.component = this.component === 'da-jiao' ? 'xiao-hong' : 'da-jiao'
+            }
+        },
+        components: {
+            'da-jiao': DaJiao,
+            'xiao-hong': XiaoHong
+        },
+        template: `
+          <transition mode="out-in" appear>
+              <component :is="component" />
+          </transition>
+          <button @click="handleClick">切换动画</button>
+        `
+    })
+
+    const vm = app.mount('#app');
 </script>
 
 </html>
